@@ -3,6 +3,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
+    "baseUrl": "./",
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
@@ -18,10 +19,13 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "lib": [
-      "ES2022",
-      "dom"
-    ]
+    "lib": ["ES2022", "dom"],
+    "paths": {
+      "@admin/*": ["src/app/private/admin/*"],
+      "@supervisor/*": ["src/app/private/supervisor/*"],
+      "@custodian/*": ["src/app/private/custodian/*"],
+      "@user/*": ["src/app/private/user/*"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
