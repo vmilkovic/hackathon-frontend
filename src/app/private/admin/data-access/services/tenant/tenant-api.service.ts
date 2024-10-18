@@ -2,6 +2,10 @@ import {
   CreateTenantRequest,
   CreateTenantResponse,
 } from '@admin/feature/tenant/data-access/models/create/tenant-create-api.model';
+import {
+  UpdateTenantRequest,
+  UpdateTenantResponse,
+} from '@admin/feature/tenant/data-access/models/edit/tenant-update-api.model';
 import { LoadAllTenantsResponse } from '@admin/feature/tenant/data-access/models/list/tenant-load-api.model';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
@@ -16,9 +20,16 @@ export class TenantApiService {
     return of({ id: 'id' });
   }
 
-  update$() {}
+  update$(
+    updateTenantRequest: UpdateTenantRequest
+  ): Observable<UpdateTenantResponse> {
+    console.log('updateTenantRequest', updateTenantRequest);
+    return of({ id: 'id' });
+  }
 
-  delete$() {}
+  delete$(deleteTenantRequest: string) {
+    return of(true);
+  }
 
   getAll$(): Observable<LoadAllTenantsResponse> {
     return of({

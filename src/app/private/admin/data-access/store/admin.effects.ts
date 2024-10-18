@@ -8,7 +8,6 @@ export const adminSuccessEffect = createEffect(
   (actions$ = inject(Actions), messageService = inject(MessageService)) =>
     actions$.pipe(
       ofType(AdminTenantActions.tenantRequestSuccess),
-      tap(console.log),
       tap(({ message }) =>
         messageService.add({
           severity: 'success',

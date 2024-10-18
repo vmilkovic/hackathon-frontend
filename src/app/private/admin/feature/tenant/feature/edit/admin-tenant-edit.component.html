@@ -1,0 +1,46 @@
+@if (isTenantEditLoading()) {
+  <div class="flex h-screen w-screen justify-center">
+    <p-progressSpinner ariaLabel="loading" />
+  </div>
+} @else {
+  <section class="mb-10">
+    <a routerLink="/admin/tenant" class="p-button font-bold">Back</a>
+  </section>
+
+  @if (tenantEditForm) {
+    <h1 class="mb-5 font-semibold text-2xl">Tenant</h1>
+
+    <section>
+      <form
+        class="flex flex-col gap-5"
+        [formGroup]="tenantEditForm"
+        (ngSubmit)="onSubmit()"
+      >
+        <div class="flex gap-2">
+          <p-floatLabel>
+            <input id="name" type="text" pInputText formControlName="name" />
+
+            <label for="name">Name</label>
+          </p-floatLabel>
+
+          <p-floatLabel>
+            <input
+              id="description"
+              type="text"
+              pInputText
+              formControlName="description"
+            />
+
+            <label for="description">Description</label>
+          </p-floatLabel>
+        </div>
+
+        <p-button
+          type="submit"
+          label="Submit"
+          [disabled]="!tenantEditForm.valid"
+        />
+      </form>
+    </section>
+  }
+}
