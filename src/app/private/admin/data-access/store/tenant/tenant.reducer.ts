@@ -7,6 +7,10 @@ import {
   tenantEditReducer,
   tenantEditReducerKey,
 } from '@admin/feature/tenant/data-access/store/edit/tenant-edit.reducer';
+import {
+  tenantListReducer,
+  tenantListReducerKey,
+} from '@admin/feature/tenant/data-access/store/list/tenant-list.reducer';
 import { Action, ActionReducer, combineReducers } from '@ngrx/store';
 
 export const tenantReducerKey = 'tenant';
@@ -17,4 +21,5 @@ export const tenantReducer: ActionReducer<
 > = combineReducers({
   [tenantCreateReducerKey]: tenantCreateReducer,
   [tenantEditReducerKey]: tenantEditReducer,
+  [tenantListReducerKey]: tenantListReducer,
 });

@@ -3,6 +3,7 @@ import { adminFeature } from '@admin/data-access/store/admin.reducer';
 import * as adminTenantEffects from '@admin/data-access/store/tenant/tenant.effects';
 import * as createAdminTenantEffects from '@admin/feature/tenant/data-access/store/create/tenant-create.effects';
 import * as editAdminTenantEffects from '@admin/feature/tenant/data-access/store/edit/tenant-edit.effects';
+import * as listAdminTenantEffects from '@admin/feature/tenant/data-access/store/list/tenant-list.effects';
 import { Route } from '@angular/router';
 import { provideEffects } from '@ngrx/effects';
 import { provideState } from '@ngrx/store';
@@ -18,7 +19,8 @@ export const adminRoutes: Route[] = [
         adminEffects,
         adminTenantEffects,
         createAdminTenantEffects,
-        editAdminTenantEffects
+        editAdminTenantEffects,
+        listAdminTenantEffects
       ),
     ],
     children: [

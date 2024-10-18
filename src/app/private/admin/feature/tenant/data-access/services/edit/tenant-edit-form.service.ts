@@ -7,7 +7,6 @@ import {
 import { mapTenantFormInputValuesToActionFormInputs } from '@admin/feature/tenant/util/tenant-form-input-mappers';
 import { DestroyRef, inject, Injectable } from '@angular/core';
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
-import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { forEach, get, keys } from 'lodash';
 import { combineLatest, debounceTime, first } from 'rxjs';
@@ -19,7 +18,6 @@ export class TenantEditFormService {
   private store = inject(Store);
   private destroyRef = inject(DestroyRef);
   private tenantFormService = inject(TenantFormService);
-  private activeRoute = inject(ActivatedRoute);
 
   private tenantEditForm = this.tenantFormService.buildTenantForm();
 

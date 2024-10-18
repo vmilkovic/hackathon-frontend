@@ -1,0 +1,31 @@
+<section class="mb-2">
+  <a routerLink="../create" class="p-button font-bold">Create Tenant</a>
+</section>
+
+@if (isTenantListLoading()) {
+  <div class="flex h-screen w-screen justify-center">
+    <p-progressSpinner ariaLabel="loading" />
+  </div>
+} @else {
+  @if (tenants(); as tenants) {
+    <ul class="grid grid-cols-4 gap-4">
+      @for (tenant of tenants; track $index) {
+        <li class="flex flex-col gap-5 rounded-md border-1 p-5">
+          <h2 class="font-bold">{{ tenant.name }}</h2>
+
+          <div class="flex gap-2">
+            <a [routerLink]="'../' + tenant.id" class="p-button font-bold">
+              Update
+            </a>
+
+            <p-button
+              label="Danger"
+              severity="danger"
+              (onClick)="onDelete(tenant.id)"
+            />
+          </div>
+        </li>
+      }
+    </ul>
+  }
+}
