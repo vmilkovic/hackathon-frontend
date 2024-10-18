@@ -1,5 +1,5 @@
 import { TenantCreateState } from '@admin/feature/tenant/data-access/models/create/tenant-create-store.model';
-import { AdminTenantCreateActions } from '@admin/feature/tenant/data-access/store/create/create.actions';
+import { AdminTenantCreateActions } from '@admin/feature/tenant/data-access/store/create/tenant-create.actions';
 import { createReducer, on } from '@ngrx/store';
 
 export const tenantCreateReducerKey = 'create';

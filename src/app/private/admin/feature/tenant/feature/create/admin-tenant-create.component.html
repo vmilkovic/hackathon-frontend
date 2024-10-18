@@ -1,0 +1,38 @@
+<section class="mb-10">
+  <a routerLink="/admin/tenant" class="p-button font-bold">Back</a>
+</section>
+
+@if (createTenantForm) {
+  <section>
+    <form
+      class="flex flex-col gap-5"
+      [formGroup]="createTenantForm"
+      (ngSubmit)="onSubmit()"
+    >
+      <div class="flex gap-2">
+        <p-floatLabel>
+          <input id="name" type="text" pInputText formControlName="name" />
+
+          <label for="name">Name</label>
+        </p-floatLabel>
+
+        <p-floatLabel>
+          <input
+            id="description"
+            type="text"
+            pInputText
+            formControlName="description"
+          />
+
+          <label for="description">Description</label>
+        </p-floatLabel>
+      </div>
+
+      <p-button
+        type="submit"
+        label="Submit"
+        [disabled]="!createTenantForm.valid"
+      />
+    </form>
+  </section>
+}

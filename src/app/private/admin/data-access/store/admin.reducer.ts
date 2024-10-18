@@ -1,7 +1,7 @@
 import {
   tenantCreateReducer,
   tenantCreateReducerKey,
-} from '@admin/feature/tenant/data-access/store/create/create.reducer';
+} from '@admin/feature/tenant/data-access/store/create/tenant-create.reducer';
 import { combineReducers, createFeature } from '@ngrx/store';
 
 export const adminFeatureKey = 'admin';
