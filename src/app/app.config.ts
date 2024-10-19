@@ -1,5 +1,6 @@
 import {
   ApplicationConfig,
+  importProvidersFrom,
   isDevMode,
   provideZoneChangeDetection,
 } from '@angular/core';
@@ -8,8 +9,10 @@ import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { provideRouterStore, routerReducer } from '@ngrx/router-store';
 import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
+import { KeycloakAngularModule } from 'keycloak-angular';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { routes } from './app.routes';
+import { provideKeycloak } from './core/auth/services/keycloak/keycloak.provider';
 import { metaReducers } from './shared/store/meta-reducers';
 
 export const appConfig: ApplicationConfig = {
@@ -31,5 +34,7 @@ export const appConfig: ApplicationConfig = {
       logOnly: isDevMode(),
     }),
     provideRouterStore(),
+    importProvidersFrom(KeycloakAngularModule),
+    provideKeycloak(),
   ],
 };
