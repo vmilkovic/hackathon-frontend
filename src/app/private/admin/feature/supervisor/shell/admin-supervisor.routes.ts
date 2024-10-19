@@ -10,6 +10,11 @@ export const adminSupervisorRoutes: Route[] = [
     providers: [],
     children: [
       {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'create',
+      },
+      {
         path: 'create',
         pathMatch: 'full',
         component: AdminSupervisorCreateComponent,

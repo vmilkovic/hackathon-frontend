@@ -9,6 +9,11 @@ export const adminMayorRoutes: Route[] = [
     providers: [],
     children: [
       {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'create',
+      },
+      {
         path: 'create',
         pathMatch: 'full',
         component: AdminMayorCreateComponent,
