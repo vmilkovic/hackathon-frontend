@@ -1,5 +1,9 @@
-<div>
+<div class="mb-4 flex justify-center">
   <p-dropdown
+    name="tenant"
+    inputId="tenant"
+    styleClass="w-96"
+    [showClear]="true"
     [options]="tenants()"
     [(ngModel)]="selectedTenant"
     optionLabel="name"
