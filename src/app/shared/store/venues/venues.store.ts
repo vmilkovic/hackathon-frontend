@@ -1,4 +1,5 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
+import { IVenueReservation } from '../../models/venue/venue-reservation.model';
 import { IVenue } from '../../models/venue/venue.model';
 import { VenuesActions } from './venues.actions';
 
@@ -7,6 +8,7 @@ export const venuesFeatureKey = 'venues';
 interface VenuesState {
   venuesForCurrentTenant: IVenue[];
   currentVenue: IVenue | null;
+  reservationsForCurrentVenue: IVenueReservation[];
   loading: boolean;
   error: string;
 }
@@ -14,6 +16,7 @@ interface VenuesState {
 export const initialState: VenuesState = {
   venuesForCurrentTenant: [],
   currentVenue: null,
+  reservationsForCurrentVenue: [],
   loading: false,
   error: '',
 };
@@ -64,6 +67,35 @@ const reducer = createReducer(
   ),
   on(
     VenuesActions.loadCurrentVenueByIdFailure,
+    (state, action): VenuesState => {
+      return {
+        ...state,
+        loading: false,
+        error: action.error,
+      };
+    }
+  ),
+  on(
+    VenuesActions.loadAllVenueReservationsForCurrentVenue,
+    (state): VenuesState => {
+      return {
+        ...state,
+        loading: true,
+      };
+    }
+  ),
+  on(
+    VenuesActions.loadAllVenueReservationsForCurrentVenueSuccess,
+    (state, action): VenuesState => {
+      return {
+        ...state,
+        reservationsForCurrentVenue: action.data,
+        loading: false,
+      };
+    }
+  ),
+  on(
+    VenuesActions.loadAllVenueReservationsForCurrentVenueFailure,
     (state, action): VenuesState => {
       return {
         ...state,

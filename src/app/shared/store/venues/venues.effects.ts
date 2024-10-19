@@ -101,4 +101,43 @@ export class VenuesEffects {
       })
     );
   });
+  public loadAllReservationsForVenue$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(
+        VenuesActions.loadAllVenueReservationsForCurrentVenue,
+        VenuesActions.loadCurrentVenueByIdSuccess
+      ),
+      concatLatestFrom(() =>
+        this.store.select(venuesFeature.selectCurrentVenue)
+      ),
+      exhaustMap(([, currentVenue]) => {
+        if (!currentVenue) {
+          return of(
+            VenuesActions.loadAllVenueReservationsForCurrentVenueFailure({
+              error: 'No venue found',
+            })
+          );
+        }
+
+        return this.venuesService
+          .findAllReservationsForVenue({
+            id: currentVenue?.id,
+          })
+          .pipe(
+            map((data) => {
+              return VenuesActions.loadAllVenueReservationsForCurrentVenueSuccess(
+                { data }
+              );
+            }),
+            catchError((error) =>
+              of(
+                VenuesActions.loadAllVenueReservationsForCurrentVenueFailure({
+                  error,
+                })
+              )
+            )
+          );
+      })
+    );
+  });
 }
