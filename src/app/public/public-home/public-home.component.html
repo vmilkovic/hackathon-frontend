@@ -1,1 +1,56 @@
-<p>public-home works!</p>
+<div class="absolute left-0 top-0 -z-10 h-screen w-screen">
+  <img
+    class="h-full w-full object-cover blur-sm filter"
+    src="assets/images/backgrounds/bjelovar.jpg"
+    alt="Hero image"
+  />
+</div>
+
+<div class="relative flex h-full items-center justify-center">
+  <div
+    class="flex w-full max-w-3xl flex-col space-y-4 rounded-lg bg-white p-8 opacity-95 shadow-lg"
+  >
+    <h1 class="text-2xl font-bold text-gray-800">
+      Dobrodošli na platformu za rezervaciju mjesnih domova
+    </h1>
+
+    <p class="text-gray-600">
+      Grad Bjelovar nudi mogućnost rezervacije mjesnih domova putem ove
+      platforme.
+      <br />
+      Prijavite se i rezervirajte svoj termin već danas!
+    </p>
+    <ul class="space-y-2">
+      <li class="flex items-center">
+        <i class="pi pi-check text-blue-500"></i>
+        <span class="ml-2">Pregled dostupnih domova</span>
+      </li>
+      <li class="flex items-center">
+        <i class="pi pi-check text-blue-500"></i>
+        <span class="ml-2">Online potpisivanje dokumenata</span>
+      </li>
+      <li class="flex items-center">
+        <i class="pi pi-check text-blue-500"></i>
+        <span class="ml-2">Online plaćanje rezervacije</span>
+      </li>
+    </ul>
+
+    <div class="flex flex-col space-y-2">
+      <h1 class="text-center text-xl font-bold text-gray-800">
+        Projekt podržao
+      </h1>
+      <div class="flex flex-row items-center justify-center">
+        <img
+          class="mr-2 w-24 object-cover"
+          src="assets/images/logos/bjelovar-logo.png"
+          alt="Bjelovar"
+        />
+        <span> Grad Bjelovar </span>
+      </div>
+    </div>
+
+    <div class="flex justify-center">
+      <p-button label="Provjerite domove" [routerLink]="['/venues']" />
+    </div>
+  </div>
+</div>
