@@ -2,11 +2,11 @@
   <a routerLink="/admin/supervisor" class="p-button font-bold">Back</a>
 </section>
 
-@if (createSupervisorForm) {
+@if (supervisorEditForm) {
   <section>
     <form
       class="flex flex-col gap-5"
-      [formGroup]="createSupervisorForm"
+      [formGroup]="supervisorEditForm"
       (ngSubmit)="onSubmit()"
     >
       <div class="flex gap-2">
@@ -77,7 +77,7 @@
       <p-button
         type="submit"
         label="Submit"
-        [disabled]="!createSupervisorForm.valid"
+        [disabled]="!supervisorEditForm.valid"
       />
     </form>
   </section>
