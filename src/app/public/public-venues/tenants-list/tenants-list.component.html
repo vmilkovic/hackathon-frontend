@@ -1,0 +1,9 @@
+<div>
+  <p-dropdown
+    [options]="tenants()"
+    [(ngModel)]="selectedTenant"
+    optionLabel="name"
+    placeholder="Odaberite regiju"
+    (onChange)="onTenantChange($event)"
+  />
+</div>

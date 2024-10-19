@@ -1,0 +1,50 @@
+@if (currentVenue$(); as currentVenue) {
+  <div class="flex flex-col gap-2">
+    <!-- Venue name and share button -->
+    <div class="flex items-center justify-between">
+      <h1 class="text-xl font-semibold">{{ currentVenue.name }}</h1>
+    </div>
+
+    <!-- Galleria -->
+    <p-galleria
+      [value]="galleriaImages()"
+      [responsiveOptions]="responsiveOptions"
+      [containerStyle]="{ 'max-width': '640px' }"
+      [numVisible]="5"
+      [(activeIndex)]="activeIndex"
+    >
+      <ng-template pTemplate="item" let-item>
+        <img
+          [src]="item.itemImageSrc"
+          style="width: 100%"
+          [alt]="currentVenue.name"
+        />
+      </ng-template>
+      <ng-template pTemplate="thumbnail" let-item>
+        <div class="grid-nogutter justify-content-center grid">
+          <img [src]="item.thumbnailImageSrc" [alt]="currentVenue.name" />
+        </div>
+      </ng-template>
+    </p-galleria>
+
+    <!-- Venue details -->
+    <div>
+      <h1 class="text-xl font-semibold">Detalji</h1>
+      <p>{{ currentVenue.description }}</p>
+    </div>
+
+    <p-divider />
+
+    <!-- Venue amenities -->
+    <div>
+      <div class="flex flex-row justify-start gap-4">
+        <i class="pi pi-users !text-4xl"></i>
+
+        <div>
+          <h3>Kapacitet</h3>
+          <p>{{ currentVenue.capacity }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+}

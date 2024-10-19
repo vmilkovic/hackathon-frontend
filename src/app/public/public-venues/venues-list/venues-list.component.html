@@ -1,0 +1,14 @@
+<app-tenants-list />
+
+<ul>
+  @for (venue of venues(); track $index) {
+    <li>
+      <p>{{ venue.name }}</p>
+      <p>{{ venue.description }}</p>
+      <p-button label="View" [routerLink]="['/venues', venue.id]"></p-button>
+      <br />
+    </li>
+  }
+</ul>
+
+<app-venues-map [venues]="venues()" />
