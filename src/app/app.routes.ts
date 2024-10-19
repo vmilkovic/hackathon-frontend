@@ -40,6 +40,15 @@ export const routes: Routes = [
           ),
       },
       {
+        path: 'mayor',
+        canActivate: [],
+        data: {
+          roles: [],
+        },
+        loadChildren: () =>
+          import('@mayor/shell/mayor.routes').then((mod) => mod.mayorRoutes),
+      },
+      {
         path: 'venues',
         providers: [
           provideState(venuesFeature),
