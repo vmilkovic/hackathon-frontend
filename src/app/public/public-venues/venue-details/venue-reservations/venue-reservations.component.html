@@ -1,0 +1,114 @@
+<div class="flex flex-col gap-4">
+  <div class="flex flex-col items-center gap-4 sm:flex-row" [formGroup]="form">
+    <div class="flex w-full flex-col sm:w-fit">
+      <label for="startDate">Početak rezervacije</label>
+      <p-calendar
+        styleClass="w-full"
+        inputId="startDate"
+        formControlName="startDate"
+        [showTime]="true"
+        [iconDisplay]="'input'"
+        [minDate]="minDate"
+        [maxDate]="maxDate"
+        [showIcon]="true"
+        [showTime]="true"
+        [disabledDates]="disabledDates"
+      >
+        <ng-template pTemplate="disabledDate" let-disabledDate>
+          <span class="mt-1 line-through">
+            {{ disabledDate.day }}
+          </span>
+        </ng-template>
+        <ng-template pTemplate="date" let-date>
+          <div class="flex flex-col items-center">
+            @if (dateIncludesPartialReservation(date)) {
+              <span class="h-1 w-1 rounded bg-red-500"></span>
+              <span>
+                {{ date.day }}
+              </span>
+            } @else {
+              <span class="mt-1">
+                {{ date.day }}
+              </span>
+            }
+          </div>
+        </ng-template>
+      </p-calendar>
+    </div>
+
+    <span class="mt-6 hidden sm:block">
+      <i class="pi pi-arrow-right"></i>
+    </span>
+
+    <span class="block sm:hidden">
+      <i class="pi pi-arrow-down"></i>
+    </span>
+
+    <div class="flex w-full flex-col sm:w-fit">
+      <label for="endDate">Završetak rezervacije</label>
+      <p-calendar
+        styleClass="w-full"
+        inputId="endDate"
+        formControlName="endDate"
+        [showTime]="true"
+        [iconDisplay]="'input'"
+        [minDate]="minDate"
+        [maxDate]="maxDate"
+        [showIcon]="true"
+        [showTime]="true"
+        [disabledDates]="disabledDates"
+      >
+        <ng-template pTemplate="disabledDate" let-disabledDate>
+          <span class="mt-1 line-through">
+            {{ disabledDate.day }}
+          </span>
+        </ng-template>
+        <ng-template pTemplate="date" let-date>
+          <div class="flex flex-col items-center">
+            @if (dateIncludesPartialReservation(date)) {
+              <span class="h-1 w-1 rounded bg-orange-400"></span>
+            }
+            <span>
+              {{ date.day }}
+            </span>
+          </div>
+        </ng-template>
+      </p-calendar>
+    </div>
+  </div>
+
+  <div class="flex flex-col gap-4">
+    @if (
+      form.touched && partialReservationOnChosenDate();
+      as partialReservation
+    ) {
+      <div>
+        <i class="pi pi-info-circle mr-2"></i>
+        <span>
+          Rezervacija već postoji za odabrani termin
+          {{ partialReservation.startDate | date: 'short' }}
+          -
+          {{ partialReservation.endDate | date: 'short' }}
+        </span>
+      </div>
+    }
+    @if (form.touched && form.errors?.['dateRangeInvalid']) {
+      <span>Kraj rezervacije mora biti nakon početka rezervacije</span>
+    }
+    @if (form.touched && form.errors?.['reservationUnavailable']) {
+      <span>Odabrani termin nije dostupan</span>
+    }
+    @if (form.touched && form.errors?.['dateRangeTooShort']) {
+      <span>Rezervacija mora trajati najmanje 8 sati</span>
+    }
+    @if (form.touched && form.errors?.['dateRangeTooLong']) {
+      <span>Rezervacija ne može trajati duže od 3 dana</span>
+    }
+
+    <p-button
+      [disabled]="form.invalid"
+      label="Rezerviraj"
+      (onClick)="onSubmit()"
+    />
+  </div>
+</div>

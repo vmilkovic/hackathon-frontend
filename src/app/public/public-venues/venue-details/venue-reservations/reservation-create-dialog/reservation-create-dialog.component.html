@@ -1,0 +1,122 @@
+<div>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-col gap-4">
+    <div class="flex flex-col gap-2">
+      <label for="firstName">Ime</label>
+      <input
+        pInputText
+        type="text"
+        formControlName="firstName"
+        name="firstName"
+        id="firstName"
+      />
+
+      @if (
+        form.controls.firstName.touched &&
+        form.controls.firstName.dirty &&
+        form.controls.firstName.invalid
+      ) {
+        @if (form.controls.firstName.errors?.['required']) {
+          <small class="text-red-500">Ovo polje je obavezno</small>
+        }
+      }
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <label for="lastName">Prezime</label>
+      <input
+        pInputText
+        type="text"
+        formControlName="lastName"
+        name="lastName"
+        id="lastName"
+      />
+
+      @if (
+        form.controls.lastName.touched &&
+        form.controls.lastName.dirty &&
+        form.controls.lastName.invalid
+      ) {
+        @if (form.controls.lastName.errors?.['required']) {
+          <small class="text-red-500">Ovo polje je obavezno</small>
+        }
+      }
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <label for="email">E-pošta</label>
+      <input
+        pInputText
+        type="text"
+        formControlName="email"
+        name="email"
+        id="email"
+      />
+
+      @if (
+        form.controls.email.touched &&
+        form.controls.email.dirty &&
+        form.controls.email.invalid
+      ) {
+        @if (form.controls.email.errors?.['required']) {
+          <small class="text-red-500">Ovo polje je obavezno</small>
+        }
+        @if (form.controls.email.errors?.['email']) {
+          <small class="text-red-500">Ovo polje je obavezno</small>
+        }
+      }
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <label for="description">Opis</label>
+      <textarea
+        rows="5"
+        cols="30"
+        pInputTextarea
+        formControlName="description"
+        name="description"
+        id="description"
+      ></textarea>
+
+      @if (
+        form.controls.description.touched &&
+        form.controls.description.dirty &&
+        form.controls.description.invalid
+      ) {
+        @if (form.controls.description.errors?.['required']) {
+          <small class="text-red-500">Ovo polje je obavezno</small>
+        }
+      }
+    </div>
+
+    <!-- <div class="flex flex-col gap-2">
+      <label for="phone">
+        {{ 'venues.reservations.fields.phone' | transloco }}
+      </label>
+      <input
+        pInputText
+        type="text"
+        formControlName="phone"
+        name="phone"
+        id="phone"
+      />
+
+      @if (
+        form.controls.phone.touched &&
+        form.controls.phone.dirty &&
+        form.controls.phone.invalid
+      ) {
+        @if (form.controls.phone.errors?.['required']) {
+          <small class="text-red-500">Ovo polje je obavezno</small>
+        }
+      }
+    </div> -->
+
+    <div class="flex justify-end">
+      <p-button
+        [disabled]="form.invalid"
+        label="Rezerviraj"
+        (onClick)="onSubmit()"
+      />
+    </div>
+  </form>
+</div>

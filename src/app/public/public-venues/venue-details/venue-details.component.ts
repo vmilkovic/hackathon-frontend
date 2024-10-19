@@ -14,11 +14,18 @@ import { GalleriaModule } from 'primeng/galleria';
 import { IGalleriaImage } from 'src/app/shared/models/primeng/galleria-image/galleria-image.model';
 import { VenuesActions } from 'src/app/shared/store/venues/venues.actions';
 import { venuesFeature } from 'src/app/shared/store/venues/venues.store';
+import { VenueReservationsComponent } from './venue-reservations/venue-reservations.component';
 
 @Component({
   selector: 'app-venue-details',
   standalone: true,
-  imports: [CommonModule, GalleriaModule, ButtonModule, DividerModule],
+  imports: [
+    CommonModule,
+    GalleriaModule,
+    ButtonModule,
+    DividerModule,
+    VenueReservationsComponent,
+  ],
   templateUrl: './venue-details.component.html',
 })
 export class VenueDetailsComponent implements OnInit {
