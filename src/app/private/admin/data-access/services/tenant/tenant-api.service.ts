@@ -27,7 +27,7 @@ export class TenantApiService {
   }
 
   delete$(deleteTenantRequest: string) {
-    return of(true);
+    return of('id');
   }
 
   getAll$(): Observable<LoadAllTenantsResponse> {

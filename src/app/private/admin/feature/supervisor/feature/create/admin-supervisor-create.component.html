@@ -1,0 +1,95 @@
+<section class="mb-10">
+  <a routerLink="/admin/supervisor" class="p-button font-bold">Back</a>
+</section>
+
+@if (createSupervisorForm) {
+  <section>
+    <form
+      class="flex flex-col gap-5"
+      [formGroup]="createSupervisorForm"
+      (ngSubmit)="onSubmit()"
+    >
+      <div class="flex gap-2">
+        <p-dropdown
+          formControlName="tenantId"
+          [options]="tenants()"
+          [loading]="!tenants()?.length"
+          optionLabel="name"
+          optionValue="id"
+          placeholder="Select a Tenant"
+        />
+
+        <p-floatLabel>
+          <input
+            id="firstName"
+            type="text"
+            pInputText
+            formControlName="firstName"
+          />
+
+          <label for="firstName">First name</label>
+        </p-floatLabel>
+
+        <p-floatLabel>
+          <input
+            id="lastName"
+            type="text"
+            pInputText
+            formControlName="lastName"
+          />
+
+          <label for="lastName">Last name</label>
+        </p-floatLabel>
+
+        <p-floatLabel>
+          <input
+            id="username"
+            type="text"
+            pInputText
+            formControlName="username"
+          />
+
+          <label for="username">Username</label>
+        </p-floatLabel>
+
+        <p-floatLabel>
+          <input id="email" type="email" pInputText formControlName="email" />
+
+          <label for="email">Email</label>
+        </p-floatLabel>
+
+        <p-floatLabel>
+          <input id="iban" type="iban" pInputText formControlName="iban" />
+
+          <label for="iban">IBAN</label>
+        </p-floatLabel>
+
+        <p-floatLabel>
+          <p-password
+            id="password"
+            formControlName="password"
+            [feedback]="false"
+          />
+
+          <label for="password">Password</label>
+        </p-floatLabel>
+
+        <p-floatLabel>
+          <p-password
+            id="confirmPassword"
+            formControlName="confirmPassword"
+            [feedback]="false"
+          />
+
+          <label for="confirmPassword">Confirm password</label>
+        </p-floatLabel>
+      </div>
+
+      <p-button
+        type="submit"
+        label="Submit"
+        [disabled]="!createSupervisorForm.valid"
+      />
+    </form>
+  </section>
+}

@@ -21,6 +21,7 @@
     "useDefineForClassFields": false,
     "lib": ["ES2022", "dom"],
     "paths": {
+      "@core/*": ["src/app/core/*"],
       "@admin/*": ["src/app/private/admin/*"],
       "@supervisor/*": ["src/app/private/supervisor/*"],
       "@custodian/*": ["src/app/private/custodian/*"],

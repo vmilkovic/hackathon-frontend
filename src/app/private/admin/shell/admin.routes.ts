@@ -31,6 +31,13 @@ export const adminRoutes: Route[] = [
             (mod) => mod.adminTenantRoutes
           ),
       },
+      {
+        path: 'supervisor',
+        loadChildren: () =>
+          import(
+            '@admin/feature/supervisor/shell/admin-supervisor.routes'
+          ).then((mod) => mod.adminSupervisorRoutes),
+      },
     ],
   },
 ];
