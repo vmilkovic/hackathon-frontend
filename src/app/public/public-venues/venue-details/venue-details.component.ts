@@ -11,6 +11,7 @@ import { Store } from '@ngrx/store';
 import { ButtonModule } from 'primeng/button';
 import { DividerModule } from 'primeng/divider';
 import { GalleriaModule } from 'primeng/galleria';
+import { ImageModule } from 'primeng/image';
 import { IGalleriaImage } from 'src/app/shared/models/primeng/galleria-image/galleria-image.model';
 import { VenuesActions } from 'src/app/shared/store/venues/venues.actions';
 import { venuesFeature } from 'src/app/shared/store/venues/venues.store';
@@ -22,6 +23,7 @@ import { VenueReservationsComponent } from './venue-reservations/venue-reservati
   imports: [
     CommonModule,
     GalleriaModule,
+    ImageModule,
     ButtonModule,
     DividerModule,
     VenueReservationsComponent,
