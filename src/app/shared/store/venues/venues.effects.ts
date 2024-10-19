@@ -85,7 +85,7 @@ export class VenuesEffects {
                 ...venue,
                 images: Array.from({ length: 5 }, (_, i) => ({
                   id: i.toString(),
-                  url: `https://picsum.photos/1920/1080?random=${i}`,
+                  url: `assets/images/venues/dom-0${i + 1}.jpg`,
                 })),
               };
 
