@@ -13,7 +13,7 @@ import { DynamicDialogConfig } from 'primeng/dynamicdialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { IVenueReservation } from 'src/app/shared/models/venue/venue-reservation.model';
-import { ReservationRequestsActions } from 'src/app/shared/store/reservations/reservation-requests.actions';
+import { ReservationRequestsActions } from 'src/app/shared/store/reservation-requests/reservation-requests.actions';
 
 @Component({
   selector: 'app-reservation-create-dialog',

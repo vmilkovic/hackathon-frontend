@@ -1,10 +1,13 @@
 import { Routes } from '@angular/router';
 import { provideEffects } from '@ngrx/effects';
 import { provideState } from '@ngrx/store';
+import { MyReservationsComponent } from '@user/my-reservations/my-reservations.component';
 import { PublicHomeComponent } from './public/public-home/public-home.component';
 import { MainLayoutComponent } from './shared/components/layout/main-layout/main-layout.component';
-import { ReservationRequestsEffects } from './shared/store/reservations/reservation-requests.effects';
-import { reservationRequestsFeature } from './shared/store/reservations/reservations.store';
+import { MyReservationsEffects } from './shared/store/my-reservations/my-reservations.effects';
+import { myReservationsFeature } from './shared/store/my-reservations/my-reservations.store';
+import { ReservationRequestsEffects } from './shared/store/reservation-requests/reservation-requests.effects';
+import { reservationRequestsFeature } from './shared/store/reservation-requests/reservations.store';
 import { TenantsEffects } from './shared/store/tenants/tenants.effects';
 import { tenantsFeature } from './shared/store/tenants/tenants.store';
 import { VenuesEffects } from './shared/store/venues/venues.effects';
@@ -68,6 +71,14 @@ export const routes: Routes = [
           import('./public/public-venues/public-venues.routes').then(
             (mod) => mod.publicVenuesRoutes
           ),
+      },
+      {
+        path: 'my-reservations',
+        providers: [
+          provideState(myReservationsFeature),
+          provideEffects(MyReservationsEffects),
+        ],
+        component: MyReservationsComponent,
       },
       {
         path: '',

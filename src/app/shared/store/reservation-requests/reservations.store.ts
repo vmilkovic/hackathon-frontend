@@ -1,7 +1,7 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
 import { ReservationRequestsActions } from './reservation-requests.actions';
 
-export const reservationRequestsFeatureKey = 'reservation-requests';
+export const reservationRequestsFeatureKey = 'reservationRequests';
 
 interface ReservationRequestsState {
   loading: boolean;
