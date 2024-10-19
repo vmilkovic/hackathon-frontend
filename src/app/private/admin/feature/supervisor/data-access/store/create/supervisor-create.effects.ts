@@ -1,6 +1,6 @@
 import { SupervisorApiService } from '@admin/data-access/services/supervisor/supervisor-api.service';
 import { AdminSupervisorCreateActions } from '@admin/feature/supervisor/data-access/store/create/supervisor-create.actions';
-import { mapCreateSupervisorFormInputFieldsToCreateSupervisorRequest } from '@admin/feature/supervisor/util/create/tenant-create-mappers';
+import { mapCreateSupervisorFormInputFieldsToCreateSupervisorRequest } from '@admin/feature/supervisor/util/create/supervisor-create-mappers';
 import { inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, of, switchMap } from 'rxjs';

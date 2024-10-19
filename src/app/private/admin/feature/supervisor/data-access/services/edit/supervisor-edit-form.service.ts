@@ -1,5 +1,5 @@
 import { SupervisorFormService } from '@admin/data-access/services/supervisor/supervisor-form.service';
-import { mapSupervisorFormInputValuesToActionFormInputs } from '@admin/feature/supervisor/util/tenant-form-input-mappers';
+import { mapSupervisorFormInputValuesToActionFormInputs } from '@admin/feature/supervisor/util/supervisor-form-input-mappers';
 import { computed, DestroyRef, inject, Injectable } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Store } from '@ngrx/store';

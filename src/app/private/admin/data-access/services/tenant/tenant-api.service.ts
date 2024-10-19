@@ -7,17 +7,24 @@ import {
   UpdateTenantResponse,
 } from '@admin/feature/tenant/data-access/models/edit/tenant-update-api.model';
 import { LoadAllTenantsResponse } from '@admin/feature/tenant/data-access/models/list/tenant-load-api.model';
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TenantApiService {
-  create$(
-    createTenantRequest: CreateTenantRequest
-  ): Observable<CreateTenantResponse> {
-    return of({ id: 'id' });
+  private http = inject(HttpClient);
+
+  private baseURL = `${environment.apiUrl}/${environment.apiVersion}/admin`;
+
+  create$(createTenantRequest: CreateTenantRequest) {
+    return this.http.post<CreateTenantResponse>(
+      `${this.baseURL}/tenant`,
+      createTenantRequest
+    );
   }
 
   update$(
@@ -30,13 +37,7 @@ export class TenantApiService {
     return of('id');
   }
 
-  getAll$(): Observable<LoadAllTenantsResponse> {
-    return of({
-      data: [
-        { id: '1', name: 'Tenant 1' },
-        { id: '2', name: 'Tenant 2' },
-      ],
-      count: 2,
-    });
+  getAll$() {
+    return this.http.get<LoadAllTenantsResponse>(`${this.baseURL}/tenants/all`);
   }
 }

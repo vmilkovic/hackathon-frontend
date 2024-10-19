@@ -3,11 +3,17 @@ import { inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { MessageService } from 'primeng/api';
 import { tap } from 'rxjs';
+import { AdminMayorActions } from './mayor/mayor.actions';
+import { AdminSupervisorActions } from './supervisor/supervisor.actions';
 
 export const adminSuccessEffect = createEffect(
   (actions$ = inject(Actions), messageService = inject(MessageService)) =>
     actions$.pipe(
-      ofType(AdminTenantActions.tenantRequestSuccess),
+      ofType(
+        AdminTenantActions.tenantRequestSuccess,
+        AdminSupervisorActions.supervisorRequestSuccess,
+        AdminMayorActions.mayorRequestSuccess
+      ),
       tap(({ message }) =>
         messageService.add({
           severity: 'success',
@@ -21,7 +27,11 @@ export const adminSuccessEffect = createEffect(
 export const adminFailureEffect = createEffect(
   (actions$ = inject(Actions), messageService = inject(MessageService)) =>
     actions$.pipe(
-      ofType(AdminTenantActions.tenantRequestFailure),
+      ofType(
+        AdminTenantActions.tenantRequestFailure,
+        AdminSupervisorActions.supervisorRequestFailure,
+        AdminMayorActions.mayorRequestSuccess
+      ),
       tap(({ message }) =>
         messageService.add({
           severity: 'error',

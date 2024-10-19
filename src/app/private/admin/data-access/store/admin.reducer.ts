@@ -1,4 +1,5 @@
 import { combineReducers, createFeature } from '@ngrx/store';
+import { mayorReducer, mayorReducerKey } from './mayor/mayor.reducer';
 import {
   supervisorReducer,
   supervisorReducerKey,
@@ -10,6 +11,7 @@ export const adminFeatureKey = 'admin';
 const adminReducer = combineReducers({
   [tenantReducerKey]: tenantReducer,
   [supervisorReducerKey]: supervisorReducer,
+  [mayorReducerKey]: mayorReducer,
 });
 
 export const adminFeature = createFeature({
