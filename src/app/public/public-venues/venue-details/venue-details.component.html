@@ -6,26 +6,39 @@
     </div>
 
     <!-- Galleria -->
-    <p-galleria
-      [value]="galleriaImages()"
-      [responsiveOptions]="responsiveOptions"
-      [containerStyle]="{ 'max-width': '640px' }"
-      [numVisible]="5"
-      [(activeIndex)]="activeIndex"
-    >
-      <ng-template pTemplate="item" let-item>
-        <img
-          [src]="item.itemImageSrc"
-          style="width: 100%"
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+      <!-- First image is full height -->
+      @if (galleriaImages().at(0)) {
+        <p-image
+          [src]="galleriaImages().at(0)?.thumbnailImageSrc"
           [alt]="currentVenue.name"
+          class="fixed-size"
+          styleClass="h-full w-full rounded-lg object-cover"
+          [preview]="true"
         />
-      </ng-template>
-      <ng-template pTemplate="thumbnail" let-item>
-        <div class="grid-nogutter justify-content-center grid">
-          <img [src]="item.thumbnailImageSrc" [alt]="currentVenue.name" />
-        </div>
-      </ng-template>
-    </p-galleria>
+      }
+
+      <!-- Second column with two images stacked -->
+      <div class="grid grid-cols-2 gap-4">
+        @for (
+          galleryImage of galleriaImages();
+          track galleryImage.itemImageSrc;
+          let idx = $index
+        ) {
+          @if (idx !== 0) {
+            <div class="max-h-[256px] overflow-hidden">
+              <p-image
+                [src]="galleryImage.thumbnailImageSrc"
+                [alt]="currentVenue.name"
+                class="fixed-size"
+                styleClass="h-full w-full rounded-lg object-cover"
+                [preview]="true"
+              />
+            </div>
+          }
+        }
+      </div>
+    </div>
 
     <!-- Venue details -->
     <div>
