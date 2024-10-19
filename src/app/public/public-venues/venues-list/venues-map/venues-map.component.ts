@@ -70,7 +70,7 @@ export class VenuesMapComponent implements AfterViewInit {
       <a href="/venues/${venue.id}" target="_blank">
         <img src="${thumbnailImage.url}" alt="${venue.name}" />
         <strong class="text-black">${venue.name}</strong>
-        ${venue.isRentable === false && '<p class="!m-0 text-black">Ovaj objekat nije dostupan za iznajmljivanje!</p>'}
+        ${venue.isRentable === false ? '<p class="!m-0 text-black">Ovaj objekat nije dostupan za iznajmljivanje!</p>' : ''}
         <p class="!m-0 text-gray-700">${venue.description}</p>
       </a>
     `;
