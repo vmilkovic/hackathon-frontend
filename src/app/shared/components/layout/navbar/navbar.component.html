@@ -1,0 +1,23 @@
+<div class="flex justify-center rounded-md border-1 bg-gray-50">
+  <div class="w-full max-w-7xl">
+    <p-menubar [model]="items">
+      <ng-template pTemplate="end">
+        <div class="flex flex-row items-center justify-center gap-2">
+          <!-- User's initials -->
+          @if (currentUser) {
+            <app-navbar-profile [currentUser]="currentUser" />
+          } @else {
+            <p-button
+              (click)="signIn()"
+              type="button"
+              icon="pi pi-sign-in"
+              [rounded]="true"
+              styleClass="p-button-rounded p-button-text p-button-plain"
+            >
+            </p-button>
+          }
+        </div>
+      </ng-template>
+    </p-menubar>
+  </div>
+</div>

@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
-import { AppComponent } from './app.component';
+import { MainLayoutComponent } from './shared/components/layout/main-layout/main-layout.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: AppComponent,
+    component: MainLayoutComponent,
     title: 'Hackathon',
     children: [
       {

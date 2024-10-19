@@ -1,0 +1,17 @@
+<div>
+  <p-avatar
+    (click)="op.toggle($event)"
+    class="cursor-pointer hover:brightness-95"
+    shape="circle"
+    size="normal"
+    [label]="userInitials | uppercase"
+    styleClass="mr-4"
+  ></p-avatar>
+
+  <p-overlayPanel #op styleClass="profile-overlaypanel">
+    <p-menu
+      styleClass="border-none py-4 px-0"
+      [model]="profileMenuItems"
+    ></p-menu>
+  </p-overlayPanel>
+</div>
