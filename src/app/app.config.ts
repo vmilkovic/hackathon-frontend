@@ -5,6 +5,7 @@ import {
 } from '@angular/core';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
+import { provideRouterStore, routerReducer } from '@ngrx/router-store';
 import { provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { ConfirmationService, MessageService } from 'primeng/api';
@@ -19,7 +20,7 @@ export const appConfig: ApplicationConfig = {
     ConfirmationService,
     MessageService,
     provideStore(
-      {},
+      { router: routerReducer },
       {
         metaReducers,
       }
@@ -29,5 +30,6 @@ export const appConfig: ApplicationConfig = {
       maxAge: 25,
       logOnly: isDevMode(),
     }),
+    provideRouterStore(),
   ],
 };

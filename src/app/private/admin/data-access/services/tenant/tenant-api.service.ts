@@ -23,7 +23,6 @@ export class TenantApiService {
   update$(
     updateTenantRequest: UpdateTenantRequest
   ): Observable<UpdateTenantResponse> {
-    console.log('updateTenantRequest', updateTenantRequest);
     return of({ id: 'id' });
   }
 

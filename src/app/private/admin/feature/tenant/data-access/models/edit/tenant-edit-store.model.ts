@@ -6,8 +6,8 @@ export interface TenantEditState {
 }
 
 export interface EditTenantForm {
-  inputFields: Omit<EditTenantFormInputFields, 'id'>;
+  inputFields: EditTenantFormInputFields;
   isValid: boolean;
 }
 
-export type EditTenantFormInputFields = Tenant;
+export type EditTenantFormInputFields = Omit<Tenant, 'id'>;

@@ -6,7 +6,7 @@ import {
 } from '@admin/feature/tenant/data-access/store/edit/tenant-edit.selectors';
 import { mapTenantFormInputValuesToActionFormInputs } from '@admin/feature/tenant/util/tenant-form-input-mappers';
 import { DestroyRef, inject, Injectable } from '@angular/core';
-import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Store } from '@ngrx/store';
 import { forEach, get, keys } from 'lodash';
 import { combineLatest, debounceTime, first } from 'rxjs';
@@ -31,7 +31,7 @@ export class TenantEditFormService {
   }
 
   isTenantEditLoading() {
-    return toSignal(this.store.select(selectIsTenantEditLoading));
+    return this.store.selectSignal(selectIsTenantEditLoading);
   }
 
   submitForm() {

@@ -4,5 +4,9 @@ import { EditTenantFormInputFields } from '../../data-access/models/edit/tenant-
 import { UpdateTenantRequest } from '../../data-access/models/edit/tenant-update-api.model';
 
 export const mapEditTenantFormInputFieldsToUpdateTenantRequest = (
-  updateTenantFormInputFields: EditTenantFormInputFields & Action
-): UpdateTenantRequest => omit(updateTenantFormInputFields, 'type');
+  updateTenantFormInputFields: EditTenantFormInputFields & Action,
+  id: string
+): UpdateTenantRequest => ({
+  ...omit(updateTenantFormInputFields, 'type'),
+  id,
+});
