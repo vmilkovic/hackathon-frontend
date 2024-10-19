@@ -16,6 +16,11 @@ export const routes: Routes = [
         loadChildren: () =>
           import('@admin/shell/admin.routes').then((mod) => mod.adminRoutes),
       },
+      {
+        path: '',
+        component: PublicHomeComponent,
+        pathMatch: 'full',
+      },
     ],
   },
 ];
