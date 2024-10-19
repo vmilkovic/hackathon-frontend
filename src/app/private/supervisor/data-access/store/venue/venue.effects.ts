@@ -5,19 +5,19 @@ import { SupervisorVenueCreateActions } from '@supervisor/feature/venue/data-acc
 import { concatMap, of, tap } from 'rxjs';
 import { SupervisorVenueActions } from './venue.actions';
 
-export const adminVenueSuccessEffect = createEffect(
+export const supervisorVenueSuccessEffect = createEffect(
   (actions$ = inject(Actions), router = inject(Router)) =>
     actions$.pipe(
       ofType(SupervisorVenueCreateActions.createVenueSuccess),
       concatMap(({ message }) =>
         of(SupervisorVenueActions.venueRequestSuccess({ message }))
       ),
-      tap(() => router.navigate(['admin/venue']))
+      tap(() => router.navigate(['supervisor/venue']))
     ),
   { functional: true }
 );
 
-export const adminVenueFailureEffect = createEffect(
+export const supervisorVenueFailureEffect = createEffect(
   (actions$ = inject(Actions)) =>
     actions$.pipe(
       ofType(SupervisorVenueCreateActions.createVenueFailure),

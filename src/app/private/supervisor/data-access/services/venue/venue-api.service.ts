@@ -1,9 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+
 import {
   CreateVenueRequest,
   CreateVenueResponse,
 } from '@supervisor/feature/venue/data-access/models/create/venue-create-api.model';
+import { LoadAllVenuesResponse } from '@supervisor/feature/venue/data-access/models/list/venue-load-api.model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -25,5 +27,7 @@ export class VenueApiService {
 
   delete$() {}
 
-  getAll$() {}
+  getAll$() {
+    return this.http.get<LoadAllVenuesResponse>(`${this.baseURL}/venues/all`);
+  }
 }

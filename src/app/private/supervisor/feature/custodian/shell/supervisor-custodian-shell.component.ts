@@ -3,9 +3,9 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-admin-custodian',
+  selector: 'app-supervisor-custodian-shell',
   standalone: true,
   imports: [CommonModule, RouterModule],
   template: '<router-outlet/>',
 })
-export class AdminCustodianComponent {}
+export class SupervisorCustodianShellComponent {}
