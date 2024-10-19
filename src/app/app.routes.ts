@@ -26,6 +26,17 @@ export const routes: Routes = [
           import('@admin/shell/admin.routes').then((mod) => mod.adminRoutes),
       },
       {
+        path: 'supervisor',
+        canActivate: [],
+        data: {
+          roles: [],
+        },
+        loadChildren: () =>
+          import('@supervisor/shell/supervisor.routes').then(
+            (mod) => mod.supervisorRoutes
+          ),
+      },
+      {
         path: 'venues',
         providers: [
           provideState(venuesFeature),

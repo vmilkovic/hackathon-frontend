@@ -1,0 +1,77 @@
+<section class="mb-10">
+  <a routerLink="/admin/venue" class="p-button font-bold">Back</a>
+</section>
+
+@if (createVenueForm) {
+  <section>
+    <form
+      class="flex flex-col gap-5"
+      [formGroup]="createVenueForm"
+      (ngSubmit)="onSubmit()"
+    >
+      <div class="flex flex-col gap-2">
+        <p-floatLabel>
+          <input id="name" type="text" pInputText formControlName="name" />
+
+          <label for="name">Name</label>
+        </p-floatLabel>
+
+        <p-floatLabel>
+          <input
+            id="description"
+            type="text"
+            pInputText
+            formControlName="description"
+          />
+
+          <label for="description">Description</label>
+        </p-floatLabel>
+
+        <p-floatLabel>
+          <p-inputNumber id="capacity" formControlName="capacity" />
+
+          <label for="capacity">Capacity</label>
+        </p-floatLabel>
+
+        <p-floatLabel>
+          <p-inputNumber id="price" formControlName="price" />
+
+          <label for="price">Price</label>
+        </p-floatLabel>
+
+        <p-floatLabel>
+          <p-inputNumber
+            id="securityDeposit"
+            formControlName="securityDeposit"
+          />
+
+          <label for="securityDeposit">Security Deposit</label>
+        </p-floatLabel>
+
+        <label for="is-rentable">Is rentable</label>
+        <p-inputSwitch inputId="is-rentable" formControlName="isRentable" />
+
+        <div formGroupName="location">
+          <div id="map" class="h-[500px]"></div>
+
+          <p-floatLabel>
+            <input
+              id="full-address"
+              type="text"
+              pInputText
+              formControlName="fullAddress"
+            />
+
+            <label for="full-address">Full address</label>
+          </p-floatLabel>
+        </div>
+      </div>
+
+      <p-button
+        type="submit"
+        label="Submit"
+        [disabled]="!createVenueForm.valid"
+      />
+    </form>
+  </section>
+}

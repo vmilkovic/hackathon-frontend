@@ -1,19 +1,13 @@
-import { AdminTenantActions } from '@admin/data-access/store/tenant/tenant.actions';
 import { inject } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { MessageService } from 'primeng/api';
 import { tap } from 'rxjs';
-import { AdminMayorActions } from './mayor/mayor.actions';
-import { AdminSupervisorActions } from './supervisor/supervisor.actions';
+import { SupervisorVenueActions } from './venue/venue.actions';
 
-export const adminSuccessEffect = createEffect(
+export const supervisorSuccessEffect = createEffect(
   (actions$ = inject(Actions), messageService = inject(MessageService)) =>
     actions$.pipe(
-      ofType(
-        AdminTenantActions.tenantRequestSuccess,
-        AdminSupervisorActions.supervisorRequestSuccess,
-        AdminMayorActions.mayorRequestSuccess
-      ),
+      ofType(SupervisorVenueActions.venueRequestSuccess),
       tap(({ message }) =>
         messageService.add({
           severity: 'success',
@@ -24,14 +18,10 @@ export const adminSuccessEffect = createEffect(
   { functional: true, dispatch: false }
 );
 
-export const adminFailureEffect = createEffect(
+export const supervisorFailureEffect = createEffect(
   (actions$ = inject(Actions), messageService = inject(MessageService)) =>
     actions$.pipe(
-      ofType(
-        AdminTenantActions.tenantRequestFailure,
-        AdminSupervisorActions.supervisorRequestFailure,
-        AdminMayorActions.mayorRequestFailure
-      ),
+      ofType(SupervisorVenueActions.venueRequestFailure),
       tap(({ message }) =>
         messageService.add({
           severity: 'error',
