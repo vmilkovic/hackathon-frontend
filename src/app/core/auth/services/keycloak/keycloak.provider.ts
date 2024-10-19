@@ -1,13 +1,14 @@
 import { APP_INITIALIZER } from '@angular/core';
 import { KeycloakService } from 'keycloak-angular';
+import { environment } from 'src/environments/environment';
 
 function initializeKeycloak(keycloak: KeycloakService) {
   return () =>
     keycloak.init({
       config: {
         url: 'http://localhost:9080',
-        realm: 'venues-management',
-        clientId: 'venues-management-client',
+        realm: environment.keycloakRealm,
+        clientId: environment.keycloakClientId,
       },
       initOptions: {
         onLoad: 'check-sso',
