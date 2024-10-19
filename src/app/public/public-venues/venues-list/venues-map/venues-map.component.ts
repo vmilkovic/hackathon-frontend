@@ -58,10 +58,20 @@ export class VenuesMapComponent implements AfterViewInit {
         venue.location.latitude,
         venue.location.longitude,
       ]);
-      markerToAdd.bindPopup(
-        `<strong>${venue.name}</strong><br>${venue.description}`
-      );
+      markerToAdd.bindPopup(this.buildMarkerPopupTemplateForVenue(venue));
       this.markersLayer.addLayer(markerToAdd);
     });
+  }
+
+  private buildMarkerPopupTemplateForVenue(venue: IVenue): string {
+    const thumbnailImage = venue.images[0];
+
+    return `
+      <a href="/venues/${venue.id}" target="_blank">
+        <img src="${thumbnailImage.url}" alt="${venue.name}" />
+        <strong class="text-black">${venue.name}</strong>
+        <p class="!m-0 text-gray-700">${venue.description}</p>
+      </a>
+    `;
   }
 }
