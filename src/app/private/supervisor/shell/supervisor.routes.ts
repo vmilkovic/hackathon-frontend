@@ -36,6 +36,13 @@ export const supervisorRoutes: Route[] = [
             '@supervisor/feature/custodian/shell/supervisor-custodian.routes'
           ).then((mod) => mod.supervisorCustodianRoutes),
       },
+      {
+        path: 'reservation-request',
+        loadChildren: () =>
+          import(
+            '@supervisor/feature/reservation-request/shell/supervisor-reservation-request.routes'
+          ).then((mod) => mod.supervisorReservationRequestRoutes),
+      },
     ],
   },
 ];

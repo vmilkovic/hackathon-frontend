@@ -25,6 +25,7 @@
       "@admin/*": ["src/app/private/admin/*"],
       "@supervisor/*": ["src/app/private/supervisor/*"],
       "@custodian/*": ["src/app/private/custodian/*"],
+      "@mayor/*": ["src/app/private/mayor/*"],
       "@user/*": ["src/app/private/user/*"]
     }
   },
