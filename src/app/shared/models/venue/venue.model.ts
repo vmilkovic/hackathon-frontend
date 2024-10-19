@@ -1,3 +1,4 @@
+import { IVenueImage } from './venue-image.model';
 import { IVenueLocation } from './venue-location.model';
 
 export interface IVenue {
@@ -7,6 +8,7 @@ export interface IVenue {
   capacity: number;
   isRentable: boolean;
   location: IVenueLocation;
+  images: IVenueImage[];
 }
 
 export type ICreateVenue = Omit<IVenue, 'id'>;
