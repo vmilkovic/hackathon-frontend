@@ -40,6 +40,17 @@
       </div>
     </div>
 
+    @if (currentVenue.isRentable === false) {
+      <span class="flex items-center">
+        <i class="pi pi-info-circle mr-1"></i>
+        <span class="font-medium">
+          Ovaj objekat nije dostupan za iznajmljivanje.
+        </span>
+      </span>
+
+      <p-divider />
+    }
+
     <!-- Venue details -->
     <div>
       <h1 class="text-xl font-semibold">Detalji</h1>
@@ -48,10 +59,12 @@
 
     <p-divider />
 
-    <!-- Venue reservations -->
-    <app-venue-reservations />
+    @if (currentVenue.isRentable) {
+      <!-- Venue reservations -->
+      <app-venue-reservations />
 
-    <p-divider />
+      <p-divider />
+    }
 
     <!-- Venue amenities -->
     <div>
