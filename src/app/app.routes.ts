@@ -46,6 +46,15 @@ export const routes: Routes = [
           import('@mayor/shell/mayor.routes').then((mod) => mod.mayorRoutes),
       },
       {
+        path: 'user',
+        canActivate: [],
+        data: {
+          roles: [],
+        },
+        loadChildren: () =>
+          import('@user/shell/user.routes').then((mod) => mod.userRoutes),
+      },
+      {
         path: 'venues',
         providers: [
           provideState(venuesFeature),
