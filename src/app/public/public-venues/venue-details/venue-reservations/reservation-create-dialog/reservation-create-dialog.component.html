@@ -67,31 +67,86 @@
     </div>
 
     <div class="flex flex-col gap-2">
-      <label for="description">Opis</label>
+      <label for="purpose">Svrha</label>
       <textarea
         rows="5"
         cols="30"
         pInputTextarea
-        formControlName="description"
-        name="description"
-        id="description"
+        formControlName="purpose"
+        name="purpose"
+        id="purpose"
       ></textarea>
 
       @if (
-        form.controls.description.touched &&
-        form.controls.description.dirty &&
-        form.controls.description.invalid
+        form.controls.purpose.touched &&
+        form.controls.purpose.dirty &&
+        form.controls.purpose.invalid
       ) {
-        @if (form.controls.description.errors?.['required']) {
+        @if (form.controls.purpose.errors?.['required']) {
           <small class="text-red-500">Ovo polje je obavezno</small>
         }
       }
     </div>
 
-    <!-- <div class="flex flex-col gap-2">
-      <label for="phone">
-        {{ 'venues.reservations.fields.phone' | transloco }}
-      </label>
+    <div class="flex flex-col gap-2">
+      <label for="oib">OIB</label>
+      <input pInputText type="text" formControlName="oib" name="oib" id="oib" />
+
+      @if (
+        form.controls.oib.touched &&
+        form.controls.oib.dirty &&
+        form.controls.oib.invalid
+      ) {
+        @if (form.controls.oib.errors?.['required']) {
+          <small class="text-red-500">Ovo polje je obavezno</small>
+        }
+      }
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <label for="city">Grad</label>
+      <input
+        pInputText
+        type="text"
+        formControlName="city"
+        name="city"
+        id="city"
+      />
+
+      @if (
+        form.controls.city.touched &&
+        form.controls.city.dirty &&
+        form.controls.city.invalid
+      ) {
+        @if (form.controls.city.errors?.['required']) {
+          <small class="text-red-500">Ovo polje je obavezno</small>
+        }
+      }
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <label for="streetAddress">Adresa</label>
+      <input
+        pInputText
+        type="text"
+        formControlName="streetAddress"
+        name="streetAddress"
+        id="streetAddress"
+      />
+
+      @if (
+        form.controls.streetAddress.touched &&
+        form.controls.streetAddress.dirty &&
+        form.controls.streetAddress.invalid
+      ) {
+        @if (form.controls.streetAddress.errors?.['required']) {
+          <small class="text-red-500">Ovo polje je obavezno</small>
+        }
+      }
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <label for="phone">Broj telefona</label>
       <input
         pInputText
         type="text"
@@ -109,7 +164,49 @@
           <small class="text-red-500">Ovo polje je obavezno</small>
         }
       }
-    </div> -->
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <label for="bankName">Ime banke</label>
+      <input
+        pInputText
+        type="text"
+        formControlName="bankName"
+        name="bankName"
+        id="bankName"
+      />
+
+      @if (
+        form.controls.bankName.touched &&
+        form.controls.bankName.dirty &&
+        form.controls.bankName.invalid
+      ) {
+        @if (form.controls.bankName.errors?.['required']) {
+          <small class="text-red-500">Ovo polje je obavezno</small>
+        }
+      }
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <label for="iban">IBAN</label>
+      <input
+        pInputText
+        type="text"
+        formControlName="iban"
+        name="iban"
+        id="iban"
+      />
+
+      @if (
+        form.controls.iban.touched &&
+        form.controls.iban.dirty &&
+        form.controls.iban.invalid
+      ) {
+        @if (form.controls.iban.errors?.['required']) {
+          <small class="text-red-500">Ovo polje je obavezno</small>
+        }
+      }
+    </div>
 
     <div class="flex justify-end">
       <p-button

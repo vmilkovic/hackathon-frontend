@@ -1,18 +1,21 @@
 import { TestBed } from '@angular/core/testing';
 import { provideMockActions } from '@ngrx/effects/testing';
 import { Observable } from 'rxjs';
-import { ReservationsEffects } from './reservations.effects';
+import { ReservationRequestsEffects } from './reservation-requests.effects';
 
-describe('ReservationsEffects', () => {
+describe('ReservationRequestsEffects', () => {
   let actions$: Observable<never>;
-  let effects: ReservationsEffects;
+  let effects: ReservationRequestsEffects;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ReservationsEffects, provideMockActions(() => actions$)],
+      providers: [
+        ReservationRequestsEffects,
+        provideMockActions(() => actions$),
+      ],
     });
 
-    effects = TestBed.inject(ReservationsEffects);
+    effects = TestBed.inject(ReservationRequestsEffects);
   });
 
   it('should be created', () => {

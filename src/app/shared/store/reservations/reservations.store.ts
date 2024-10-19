@@ -1,14 +1,14 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
-import { ReservationsActions } from './reservations.actions';
+import { ReservationRequestsActions } from './reservation-requests.actions';
 
-export const reservationsFeatureKey = 'reservations';
+export const reservationRequestsFeatureKey = 'reservation-requests';
 
-interface ReservationsState {
+interface ReservationRequestsState {
   loading: boolean;
   error: string;
 }
 
-export const initialState: ReservationsState = {
+export const initialState: ReservationRequestsState = {
   loading: false,
   error: '',
 };
@@ -16,8 +16,8 @@ export const initialState: ReservationsState = {
 const reducer = createReducer(
   initialState,
   on(
-    ReservationsActions.createReservationForCurrentVenue,
-    (state): ReservationsState => {
+    ReservationRequestsActions.createReservationRequestForCurrentVenueFailure,
+    (state): ReservationRequestsState => {
       return {
         ...state,
         loading: true,
@@ -25,8 +25,8 @@ const reducer = createReducer(
     }
   ),
   on(
-    ReservationsActions.createReservationForCurrentVenueSuccess,
-    (state): ReservationsState => {
+    ReservationRequestsActions.createReservationRequestForCurrentVenueSuccess,
+    (state): ReservationRequestsState => {
       return {
         ...state,
         loading: false,
@@ -34,8 +34,8 @@ const reducer = createReducer(
     }
   ),
   on(
-    ReservationsActions.createReservationForCurrentVenueFailure,
-    (state, action): ReservationsState => {
+    ReservationRequestsActions.createReservationRequestForCurrentVenueFailure,
+    (state, action): ReservationRequestsState => {
       return {
         ...state,
         loading: false,
@@ -45,7 +45,7 @@ const reducer = createReducer(
   )
 );
 
-export const reservationsFeature = createFeature({
-  name: reservationsFeatureKey,
+export const reservationRequestsFeature = createFeature({
+  name: reservationRequestsFeatureKey,
   reducer,
 });

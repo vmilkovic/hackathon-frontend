@@ -26,7 +26,7 @@ import {
 import { Subscription } from 'rxjs';
 import { IDateTemplate } from 'src/app/shared/models/primeng/calendar/date-template.model';
 import { IVenueReservation } from 'src/app/shared/models/venue/venue-reservation.model';
-import { ReservationsActions } from 'src/app/shared/store/reservations/reservations.actions';
+import { ReservationRequestsActions } from 'src/app/shared/store/reservations/reservation-requests.actions';
 import { venuesFeature } from 'src/app/shared/store/venues/venues.store';
 import { dateRangeValidator } from 'src/app/shared/validators/date/date-range.validator';
 import { reservationAvailabilityValidator } from 'src/app/shared/validators/reservation-availability/reservation-availability.validator';
@@ -147,7 +147,9 @@ export class VenueReservationsComponent implements OnInit, OnDestroy {
     this.subscriptions.push(
       this.actions
         .pipe(
-          ofType(ReservationsActions.createReservationForCurrentVenueSuccess)
+          ofType(
+            ReservationRequestsActions.createReservationRequestForCurrentVenueSuccess
+          )
         )
         .subscribe(() => {
           this.reservationsDialogRef?.close();
