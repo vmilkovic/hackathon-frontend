@@ -9,7 +9,7 @@
       [formGroup]="createVenueForm"
       (ngSubmit)="onSubmit()"
     >
-      <div class="flex flex-col gap-2">
+      <div class="flex flex-col gap-5">
         <p-floatLabel>
           <input id="name" type="text" pInputText formControlName="name" />
 
@@ -51,7 +51,7 @@
         <label for="is-rentable">Is rentable</label>
         <p-inputSwitch inputId="is-rentable" formControlName="isRentable" />
 
-        <div formGroupName="location">
+        <div class="flex flex-col gap-5" formGroupName="location">
           <div id="map" class="h-[500px]"></div>
 
           <p-floatLabel>
