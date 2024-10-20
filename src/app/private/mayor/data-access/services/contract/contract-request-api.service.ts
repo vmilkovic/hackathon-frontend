@@ -8,19 +8,14 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
 })
-export class ReservationRequestApiService {
+export class ContractRequestApiService {
   private http = inject(HttpClient);
 
   private baseURL = `${environment.apiUrl}/${environment.apiVersion}/supervisor`;
 
-  initializeContract$(
+  approveContract$(
     reservationRequestInitializeContract: InitializeContractRequest
-  ) {
-    this.http.post(
-      `${this.baseURL}/reservation-requests/${reservationRequestInitializeContract.id}/initialize-contract`,
-      reservationRequestInitializeContract
-    );
-  }
+  ) {}
 
   getAll$() {
     return of({

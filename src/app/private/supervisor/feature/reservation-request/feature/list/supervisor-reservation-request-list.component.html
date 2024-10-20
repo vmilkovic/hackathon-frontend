@@ -1,0 +1,62 @@
+<p-table
+  [value]="reservationRequests()"
+  [rowsPerPageOptions]="[5, 10, 20]"
+  sortField="firstName"
+>
+  <ng-template pTemplate="header">
+    <tr>
+      <th pSortableColumn="id">ID <p-sortIcon field="id"></p-sortIcon></th>
+      <th pSortableColumn="firstName">
+        First Name <p-sortIcon field="firstName"></p-sortIcon>
+      </th>
+      <th pSortableColumn="lastName">
+        Last Name <p-sortIcon field="lastName"></p-sortIcon>
+      </th>
+      <th pSortableColumn="streetAddress">
+        Street Address <p-sortIcon field="streetAddress"></p-sortIcon>
+      </th>
+      <th pSortableColumn="city">
+        City <p-sortIcon field="city"></p-sortIcon>
+      </th>
+      <th pSortableColumn="oib">OIB <p-sortIcon field="oib"></p-sortIcon></th>
+      <th pSortableColumn="phone">
+        Phone <p-sortIcon field="phone"></p-sortIcon>
+      </th>
+      <th pSortableColumn="bankName">
+        Bank Name <p-sortIcon field="bankName"></p-sortIcon>
+      </th>
+      <th pSortableColumn="iban">
+        IBAN <p-sortIcon field="iban"></p-sortIcon>
+      </th>
+      <th pSortableColumn="purpose">
+        Purpose <p-sortIcon field="purpose"></p-sortIcon>
+      </th>
+      <th pSortableColumn="startDate">
+        Start Date <p-sortIcon field="startDate"></p-sortIcon>
+      </th>
+      <th pSortableColumn="endDate">
+        End Date <p-sortIcon field="endDate"></p-sortIcon>
+      </th>
+      <th></th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-request>
+    <tr>
+      <td>{{ request.id }}</td>
+      <td>{{ request.firstName }}</td>
+      <td>{{ request.lastName }}</td>
+      <td>{{ request.streetAddress }}</td>
+      <td>{{ request.city }}</td>
+      <td>{{ request.oib }}</td>
+      <td>{{ request.phone }}</td>
+      <td>{{ request.bankName }}</td>
+      <td>{{ request.iban }}</td>
+      <td>{{ request.purpose }}</td>
+      <td>{{ request.startDate }}</td>
+      <td>{{ request.endDate }}</td>
+      <td>
+        <p-button label="Initialize contract" />
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
