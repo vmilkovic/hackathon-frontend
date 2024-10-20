@@ -68,15 +68,15 @@ export class NavbarComponent implements OnInit, OnDestroy {
         label: 'Admin',
         items: [
           {
-            label: 'Tenants',
+            label: 'Nadležna tijela',
             routerLink: ['/admin/tenant'],
           },
           {
-            label: 'Supervisor',
+            label: 'Gradski službenici',
             routerLink: ['/admin/supervisor'],
           },
           {
-            label: 'Mayor',
+            label: 'Gradonačelnik',
             routerLink: ['/admin/mayor'],
           },
         ],
@@ -98,7 +98,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
           },
         ],
       }),
-      ...this.addMenuItemIfRolesExists(Roles.SUPERVISOR, {
+      ...this.addMenuItemIfRolesExists(Roles.CUSTODIAN, {
         label: 'Domari',
         items: [
           {

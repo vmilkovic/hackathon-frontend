@@ -12,7 +12,7 @@
           [loading]="!tenants()?.length"
           optionLabel="name"
           optionValue="id"
-          placeholder="Select a Tenant"
+          placeholder="Odaberi nadležno tijelo"
         />
 
         <p-floatLabel>
@@ -23,7 +23,7 @@
             formControlName="firstName"
           />
 
-          <label for="firstName">First name</label>
+          <label for="firstName">Ime</label>
         </p-floatLabel>
 
         <p-floatLabel>
@@ -34,7 +34,7 @@
             formControlName="lastName"
           />
 
-          <label for="lastName">Last name</label>
+          <label for="lastName">Prezime</label>
         </p-floatLabel>
 
         <p-floatLabel>
@@ -50,7 +50,7 @@
             [feedback]="false"
           />
 
-          <label for="password">Password</label>
+          <label for="password">Lozinka</label>
         </p-floatLabel>
 
         <p-floatLabel>
@@ -60,13 +60,13 @@
             [feedback]="false"
           />
 
-          <label for="confirmPassword">Confirm password</label>
+          <label for="confirmPassword">Potvrdi lozinku</label>
         </p-floatLabel>
       </div>
 
       <p-button
         type="submit"
-        label="Submit"
+        label="Spremi"
         [disabled]="!createMayorForm.valid"
       />
     </form>

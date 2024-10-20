@@ -4,11 +4,11 @@
   </div>
 } @else {
   <section class="mb-10">
-    <a routerLink="/admin/tenant" class="p-button font-bold">Back</a>
+    <a routerLink="/admin/tenant" class="p-button font-bold">Nazad</a>
   </section>
 
   @if (tenantEditForm) {
-    <h1 class="mb-5 font-semibold text-2xl">Tenant</h1>
+    <h1 class="mb-5 text-2xl font-semibold">Nadležno tijelo</h1>
 
     <section>
       <form
@@ -20,7 +20,7 @@
           <p-floatLabel>
             <input id="name" type="text" pInputText formControlName="name" />
 
-            <label for="name">Name</label>
+            <label for="name">Ime</label>
           </p-floatLabel>
 
           <p-floatLabel>
@@ -31,13 +31,13 @@
               formControlName="description"
             />
 
-            <label for="description">Description</label>
+            <label for="description">Opis</label>
           </p-floatLabel>
         </div>
 
         <p-button
           type="submit"
-          label="Submit"
+          label="Spremi"
           [disabled]="!tenantEditForm.valid"
         />
       </form>

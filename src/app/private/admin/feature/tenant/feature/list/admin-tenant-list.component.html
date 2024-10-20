@@ -1,5 +1,5 @@
 <section class="mb-2">
-  <a routerLink="../create" class="p-button font-bold">Create Tenant</a>
+  <a routerLink="../create" class="p-button font-bold">Dodaj nadležno tijelo</a>
 </section>
 
 @if (isTenantListLoading()) {
@@ -15,11 +15,11 @@
 
           <div class="flex gap-2">
             <a [routerLink]="'../' + tenant.id" class="p-button font-bold">
-              Update
+              Uredi
             </a>
 
             <p-button
-              label="Danger"
+              label="Izbriši"
               severity="danger"
               (onClick)="onDelete(tenant.id)"
             />
