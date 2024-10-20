@@ -35,10 +35,7 @@
       </li>
     </ul>
 
-    <div class="flex flex-col space-y-2">
-      <h1 class="text-center text-xl font-bold text-gray-800">
-        Projekt podržao
-      </h1>
+    <div class="flex flex-col space-y-6">
       <div class="flex flex-row items-center justify-center">
         <img
           class="mr-2 w-24 object-cover"
@@ -49,8 +46,13 @@
       </div>
     </div>
 
-    <div class="flex justify-center">
-      <p-button label="Provjerite domove" [routerLink]="['/venues']" />
+    <div class="flex justify-center pt-5">
+      <p-button
+        [outlined]="true"
+        severity="secondary"
+        label="Odaberi dom"
+        [routerLink]="['/venues']"
+      />
     </div>
   </div>
 </div>
