@@ -62,7 +62,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
       },
       ...this.addMenuItemIfRolesExists(Roles.USER, {
         label: 'Moje rezervacije',
-        routerLink: '/user/reservation',
+        routerLink: '/my-reservations',
       }),
       ...this.addMenuItemIfRolesExists(Roles.ADMIN, {
         label: 'Admin',
